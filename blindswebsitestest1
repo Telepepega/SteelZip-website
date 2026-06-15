@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SteelZip Trade</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #111;
+      color: white;
+    }
+
+    header {
+      height: 90px;
+      background: #1e1e1e;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 70px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo {
+      color: #ffdc13;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 35px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #ff6a00;
+    }
+
+    .trade-btn {
+      background: #ff6a00;
+      color: white;
+      padding: 15px 28px;
+      text-decoration: none;
+      font-weight: 900;
+      border-radius: 2px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0.55), rgba(0,0,0,0.2)),
+        linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.9)),
+        url("https://kor01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1600585154340-be6161a56a0c%3Fauto%3Dformat%26fit%3Dcrop%26w%3D1800%26q%3D80&data=05%7C02%7C%7C7c0771c3219c417289e808deca7e895c%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639170841990393608%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=sc0NgjowRBmfRjvARFZzSEcXVurDaj5uyRGp%2BlfA%2FRo%3D&reserved=0");
+      background-size: cover;
+      background-position: center;
+      padding: 220px 70px 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .subheading {
+      color: #ff6a00;
+      font-weight: 900;
+      letter-spacing: 3px;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 72px;
+      line-height: 0.95;
+      font-weight: 1000;
+      margin-bottom: 30px;
+    }
+
+    h1 span {
+      color: #ff6a00;
+      display: block;
+    }
+
+    .hero p {
+      font-size: 23px;
+      line-height: 1.35;
+      font-weight: 700;
+      margin-bottom: 45px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 18px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 20px 34px;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    .primary-btn {
+      background: #ff6a00;
+      color: white;
+      border: 2px solid #ff6a00;
+    }
+
+    .secondary-btn {
+      color: white;
+      border: 2px solid white;
+    }
+
+    .feature-bar {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      background: #151515;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+    }
+
+    .feature {
+      padding: 22px 15px;
+      text-align: center;
+      font-weight: 900;
+      font-size: 13px;
+      border-right: 1px solid #333;
+    }
+
+    .feature span {
+      color: #ff6a00;
+      margin-right: 8px;
+    }
+
+    section {
+      padding: 90px 70px;
+    }
+
+    .section-title {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .section-title span {
+      color: #ff6a00;
+    }
+
+    .section-text {
+      color: #ccc;
+      max-width: 750px;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 45px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #1c1c1c;
+      border: 1px solid #333;
+      padding: 30px;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #ff6a00;
+    }
+
+    .card h3 {
+      color: #ff6a00;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .dark-section {
+      background: #0d0d0d;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery div {
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid #333;
+    }
+
+    .img1 {
+      background-image: url("https://kor01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1600566753190-17f0baa2a6c3%3Fauto%3Dformat%26fit%3Dcrop%26w%3D900%26q%3D80&data=05%7C02%7C%7C7c0771c3219c417289e808deca7e895c%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639170841990428991%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=NLAlUlIFBWjfB%2BP3uChe8cHKmiuFaopxXoF5bR0pV5E%3D&reserved=0");
+    }
+
+    .img2 {
+      background-image: url("https://kor01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1600607687939-ce8a6c25118c%3Fauto%3Dformat%26fit%3Dcrop%26w%3D900%26q%3D80&data=05%7C02%7C%7C7c0771c3219c417289e808deca7e895c%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639170841990448666%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=PcGg4vBabGHlfYMGKpF2aVGVicRg5DqqFpv3AuAf10Q%3D&reserved=0");
+    }
+
+    .img3 {
+      background-image: url("https://kor01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1600573472592-401b489a3cdc%3Fauto%3Dformat%26fit%3Dcrop%26w%3D900%26q%3D80&data=05%7C02%7C%7C7c0771c3219c417289e808deca7e895c%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639170841990470228%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=om7J0PxdkRg7VpewDI6FPoakfRApOVUe5jDW0lQqI8E%3D&reserved=0");
+    }
+
+    .contact-box {
+      background: #1c1c1c;
+      border: 1px solid #333;
+      padding: 40px;
+      max-width: 700px;
+    }
+
+    .contact-box input,
+    .contact-box textarea {
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 15px;
+      background: #111;
+      border: 1px solid #444;
+      color: white;
+      font-size: 15px;
+    }
+
+    .contact-box button {
+      background: #ff6a00;
+      color: white;
+      padding: 18px 35px;
+      border: none;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #050505;
+      padding: 35px 70px;
+      color: #aaa;
+      text-align: center;
+      border-top: 1px solid #333;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        padding: 0 25px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 170px 25px 80px;
+      }
+
+      h1 {
+        font-size: 46px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .feature-bar,
+      .cards,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 70px 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">SteelZip</div>
+
+    <nav>
+      <a href="#products">PRODUCTS</a>
+      <a href="#trade">TRADE & WHOLESALE</a>
+      <a href="#about">ABOUT</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+
+    <a href="#contact" class="trade-btn">TRADE ACCOUNT</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="subheading">AUSTRALIAN MANUFACTURER & WHOLESALE SUPPLIER</div>
+
+      <h1>
+        BUILT FOR THE TRADE.
+        <span>BUILT TO LAST.</span>
+      </h1>
+
+      <p>
+        Premium outdoor blinds manufactured in Australia.
+        Wholesale pricing, custom sizing and fast dispatch for
+        builders, contractors and installers nationwide.
+      </p>
+
+      <div class="buttons">
+        <a href="#products" class="primary-btn">VIEW PRODUCTS →</a>
+        <a href="#contact" class="secondary-btn">APPLY FOR TRADE ACCOUNT</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="feature-bar">
+    <div class="feature"><span>●</span>AUSTRALIAN MADE</div>
+    <div class="feature"><span>●</span>WHOLESALE PRICING</div>
+    <div class="feature"><span>●</span>FAST LEAD TIMES</div>
+    <div class="feature"><span>●</span>10 YEAR WARRANTY</div>
+    <div class="feature"><span>●</span>CUSTOM SIZING</div>
+    <div class="feature"><span>●</span>ACCOUNT MANAGER</div>
+  </div>
+
+  <section id="products">
+    <h2 class="section-title">Our <span>Products</span></h2>
+    <p class="section-text">
+      High-quality outdoor blind and shutter products designed for trade installers,
+      builders and wholesale customers.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Outdoor Blinds</h3>
+        <p>Durable outdoor blind systems built for residential and commercial projects.</p>
+      </div>
+
+      <div class="card">
+        <h3>Zip Screens</h3>
+        <p>Modern zip screen systems with strong wind resistance and clean finishes.</p>
+      </div>
+
+      <div class="card">
+        <h3>Roller Shutters</h3>
+        <p>Custom-sized roller shutters available in multiple profiles and colours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="trade" class="dark-section">
+    <h2 class="section-title">Trade & <span>Wholesale</span></h2>
+    <p class="section-text">
+      We support installers and builders with reliable supply, wholesale pricing,
+      custom manufacturing and fast turnaround times.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Wholesale Pricing</h3>
+        <p>Competitive trade rates for approved businesses and repeat customers.</p>
+      </div>
+
+      <div class="card">
+        <h3>Custom Sizing</h3>
+        <p>Products manufactured to suit your project measurements and requirements.</p>
+      </div>
+
+      <div class="card">
+        <h3>Fast Dispatch</h3>
+        <p>Efficient production and dispatch to keep your projects moving.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">About <span>SteelZip</span></h2>
+    <p class="section-text">
+      SteelZip is an Australian supplier focused on providing strong, reliable and
+      professional-grade outdoor blind and shutter products for the trade industry.
+      Our goal is to make ordering easy, accurate and dependable for installers.
+    </p>
+  </section>
+
+  <section id="gallery" class="dark-section">
+    <h2 class="section-title">Project <span>Gallery</span></h2>
+    <p class="section-text">
+      View examples of premium outdoor blinds, zip screens and shutter installations.
+    </p>
+
+    <div class="gallery">
+      <div class="img1"></div>
+      <div class="img2"></div>
+      <div class="img3"></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Apply For A <span>Trade Account</span></h2>
+    <p class="section-text">
+      Send through your details and our team will contact you about trade pricing
+      and wholesale supply.
+    </p>
+
+    <div class="contact-box">
+      <input type="text" placeholder="Business Name" />
+      <input type="text" placeholder="Your Name" />
+      <input type="email" placeholder="Email Address" />
+      <input type="tel" placeholder="Phone Number" />
+      <textarea rows="5" placeholder="Tell us what products you are interested in"></textarea>
+      <button>SEND APPLICATION</button>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 SteelZip. Australian Manufacturer & Wholesale Supplier.
+  </footer>
+
+</body>
+</html>
