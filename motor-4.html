@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>SteelZip | Motor Name</title>
+
+  <style>
+    :root {
+      --orange: #ff6a00;
+      --orange-light: #ff862d;
+      --yellow: #ffdc13;
+      --black: #080808;
+      --charcoal: #111111;
+      --panel: #191919;
+      --border: #353535;
+      --text: #ffffff;
+      --muted: #bdbdbd;
+      --header-height: 88px;
+      --content-width: 1240px;
+      --shadow: 0 18px 55px rgba(0, 0, 0, 0.32);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+      overflow-x: hidden;
+      background: var(--black);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--content-width));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .btn {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 25px;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      font-size: 0.86rem;
+      font-weight: 900;
+      letter-spacing: 0.045em;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition:
+        transform 180ms ease,
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--orange-light);
+      border-color: var(--orange-light);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: rgba(255, 255, 255, 0.75);
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: #fff;
+      color: #111;
+    }
+
+    /* Header */
+    .site-header {
+      height: var(--header-height);
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.94);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand-logo {
+    width: 220px;
+    max-width: 42vw;
+    height: auto;
+    object-fit: contain;
+    }
+
+    .site-header .brand-logo {
+    max-height: 58px;
+    transform: scale(4.5);
+    transform-origin: center;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .desktop-nav a {
+      position: relative;
+      color: #f1f1f1;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .desktop-nav a:hover,
+    .desktop-nav a.active {
+      color: var(--orange);
+    }
+
+    .nav-dropdown {
+      position: relative;
+    }
+
+    .nav-dropdown > a::after {
+      content: " ▾";
+      font-size: 0.7rem;
+    }
+
+    .dropdown-menu {
+      min-width: 230px;
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      padding: 12px 0;
+      background: #111;
+      border: 1px solid #333;
+      box-shadow: var(--shadow);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 18px;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a:hover {
+      background: #1d1d1d;
+      color: var(--orange);
+    }
+
+    .nav-dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    /* Page */
+    .motor-detail {
+      padding-top: calc(var(--header-height) + 80px);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top right, rgba(255, 106, 0, 0.08), transparent 34%),
+        #080808;
+    }
+
+    .breadcrumb {
+      margin-bottom: 24px;
+      color: #bdbdbd;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .breadcrumb a {
+      color: var(--orange);
+    }
+
+    .breadcrumb span {
+      color: #cfcfcf;
+    }
+
+    .motor-hero-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .motor-image {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #222;
+      box-shadow: var(--shadow);
+    }
+
+    .motor-image img {
+      height: 520px;
+      object-fit: cover;
+    }
+
+    .motor-info-card {
+      padding: 42px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .motor-info-card h1 {
+      margin: 18px 0 24px;
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      text-transform: uppercase;
+    }
+
+    .motor-info-card h1 span {
+      color: var(--orange);
+    }
+
+    .motor-info-card p {
+      max-width: 720px;
+      margin-bottom: 26px;
+      color: #e4e4e4;
+      font-size: 1.02rem;
+      line-height: 1.75;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 30px;
+      list-style: none;
+    }
+
+    .product-list li {
+      color: #f0f0f0;
+      font-size: 0.95rem;
+    }
+
+    .product-list li::before {
+      content: "✓";
+      margin-right: 10px;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .spec-section {
+      padding-top: 40px;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      margin: 12px 0 18px;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 span {
+      color: var(--orange);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .spec-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .spec-card small {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--orange);
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .spec-card strong {
+      display: block;
+      color: #fff;
+      font-size: 1.15rem;
+    }
+
+    .spec-card span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .site-footer {
+      padding: 35px 0;
+      background: #050505;
+      border-top: 1px solid #292929;
+      color: #828282;
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 1000px) {
+      .desktop-nav {
+        gap: 18px;
+      }
+
+      .motor-hero-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      :root {
+        --header-height: 76px;
+      }
+
+      .container {
+        width: min(calc(100% - 28px), var(--content-width));
+      }
+
+      .site-header {
+        position: sticky;
+      }
+
+      .header-inner {
+        justify-content: center;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .brand-logo {
+        width: 210px;
+      }
+
+      .motor-detail {
+        padding-top: 55px;
+      }
+
+      .motor-info-card {
+        padding: 28px 20px;
+      }
+
+      .motor-image img {
+        height: 340px;
+      }
+
+      .button-row {
+        display: grid;
+      }
+
+      .button-row .btn {
+        width: 100%;
+      }
+
+      .spec-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a aria-label="SteelZip home" class="brand" href="index.html">
+      <img alt="SteelZip" class="brand-logo" src="steelzip-horizontal-transparant.png"/>
+    </a>
+
+    <nav aria-label="Main navigation" class="desktop-nav">
+      <div class="nav-dropdown">
+        <a href="outdoor-blinds.html" class="active">Products</a>
+        <div class="dropdown-menu">
+          <a href="outdoor-blinds.html">Outdoor Blinds</a>
+          <a href="100-series-box.html">100 Series Box</a>
+          <a href="125-series-box.html">125 Series Box</a>
+          <a href="150-series-box.html">150 Series Box</a>
+          <a href="guides.html">Guides</a>
+          <a href="motors-controls.html">Motors & Controls</a>
+          <a href="fabrics-colours.html">Fabrics & Colours</a>
+        </div>
+      </div>
+      <a href="index.html#trade">Trade & Wholesale</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#gallery">Gallery</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+
+    <a class="btn btn-primary" href="index.html#contact">Trade Account</a>
+  </div>
+</header>
+
+<main>
+  <section class="section motor-detail">
+    <div class="container">
+
+      <div class="breadcrumb">
+        <a href="outdoor-blinds.html">Products</a> /
+        <a href="motors-controls.html">Motors & Controls</a> /
+        <span>Motor Name</span>
+      </div>
+
+      <div class="motor-hero-layout">
+
+        <div class="motor-image">
+          <!-- Change this image for each motor -->
+          <img src="motor-1.jpg" alt="Motor Name">
+        </div>
+
+        <div class="motor-info-card">
+          <p class="eyebrow">Motor Option</p>
+
+          <!-- Change this title for each motor -->
+          <h1>Motor <span>Name</span></h1>
+
+          <!-- Change this description for each motor -->
+          <p>
+            Add your motor description here. This section should explain what the motor is used for,
+            what outdoor blind systems it suits, and whether it is best for standard, heavy-duty,
+            remote-control, or premium applications.
+          </p>
+
+          <ul class="product-list">
+            <li>Suitable for outdoor blind systems</li>
+            <li>Manual, remote or control options available</li>
+            <li>Trade supply and installation support</li>
+          </ul>
+
+          <div class="button-row">
+            <a class="btn btn-primary" href="index.html#contact">Request a Quote</a>
+            <a class="btn btn-outline" href="motors-controls.html">Back to Motors</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section spec-section">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">Product details</p>
+        <h2>Motor <span>Specifications</span></h2>
+        <p>
+          Replace these details with the real information for each motor.
+        </p>
+      </div>
+
+      <div class="spec-grid">
+        <article class="spec-card">
+          <small>Operation</small>
+          <strong>Motorised</strong>
+          <span>Use this area to mention remote, switch, manual override or automation options.</span>
+        </article>
+
+        <article class="spec-card">
+          <small>Best suited for</small>
+          <strong>Outdoor Blinds</strong>
+          <span>Describe the type of blind, box size, or project this motor is suitable for.</span>
+        </article>
+
+        <article class="spec-card">
+          <small>Control options</small>
+          <strong>Remote / Switch</strong>
+          <span>List compatible control methods here.</span>
+        </article>
+
+        <article class="spec-card">
+          <small>Trade notes</small>
+          <strong>Quote Required</strong>
+          <span>Add any notes about sizing, compatibility or installation requirements.</span>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-bottom">
+    <span>© <span id="currentYear"></span> SteelZip. All rights reserved.</span>
+    <span>Australian Manufacturer & Wholesale Supplier</span>
+  </div>
+</footer>
+
+<script>
+  const currentYear = document.getElementById("currentYear");
+  if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+  }
+</script>
+
+</body>
+</html>
