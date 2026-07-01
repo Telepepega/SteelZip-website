@@ -2044,10 +2044,6 @@
 </div>
 <div class="form-field full">
 <button class="btn btn-primary" type="submit">Prepare Enquiry Email</button>
-<p class="form-hint">
-                This static website prepares an email in your default email application. Replace the
-                email address and phone number in the code with your real business details.
-              </p>
 <div aria-live="polite" class="form-status" id="formStatus" role="status"></div>
 </div>
 </div>
@@ -2082,7 +2078,7 @@
 <h3>Contact</h3>
 <a href="#contact">Request a Quote</a>
 <a href="#contact">Trade Account</a>
-<a href="mailto:sales@steelzip.com.au">Email Us</a>
+<a href="mailto:info@steelzip.com.au">Email Us</a>
 </div>
 </div>
 <div class="footer-bottom">
@@ -2262,7 +2258,7 @@
         formStatus.textContent = "Opening your email application with the enquiry details…";
 
         const mailtoLink =
-          `mailto:sales@steelzip.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+          `mailto:info@steelzip.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
         window.location.href = mailtoLink;
       });
