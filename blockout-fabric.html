@@ -1333,6 +1333,112 @@
       }
     }
 
+
+    /* Fabric detail information section */
+    .fabric-info-section {
+      padding-top: 80px;
+    }
+
+    .fabric-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 60px;
+    }
+
+    .fabric-info-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--panel);
+    }
+
+    .fabric-info-card h3 {
+      margin-bottom: 12px;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .fabric-info-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .fabric-detail-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .fabric-detail-copy {
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--panel);
+    }
+
+    .fabric-detail-copy h2 {
+      margin: 12px 0 20px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+    }
+
+    .fabric-detail-copy h2 span {
+      color: var(--orange);
+    }
+
+    .fabric-detail-copy p {
+      margin-bottom: 22px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .fabric-spec-panel {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #101010;
+    }
+
+    .fabric-spec-panel h3 {
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+
+    .fabric-spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid #303030;
+    }
+
+    .fabric-spec-row:last-child {
+      border-bottom: 0;
+    }
+
+    .fabric-spec-row strong {
+      color: #fff;
+    }
+
+    .fabric-spec-row span {
+      color: var(--orange);
+      font-weight: 800;
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .fabric-info-grid,
+      .fabric-detail-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Responsive */
     @media (max-width: 1100px) {
       .desktop-nav {
@@ -1635,7 +1741,7 @@
 <main>
 <section class="section section-dark product-page-hero">
 <div class="container">
-<p class="breadcrumb"><a href="index.html#products">Products</a> / <a href="outdoor-blinds.html">Outdoor Blinds</a> / <a href="fabrics-colours.html">Fabrics &amp; Colours</a> / Full Blockout / 100%</p>
+<p class="breadcrumb"><a href="index.html#products">Products</a> / <a href="outdoor-blinds.html">Outdoor Blinds</a> / <a href="fabrics-colours.html">Fabrics &amp; Colours</a> / Full Blockout / 100% Fabric</p>
 <div class="product-detail-layout">
 <div class="product-detail-image">
 <img alt="Full blockout outdoor blind fabric" loading="lazy" src="blockout-fabric.jpg"/>
@@ -1644,15 +1750,15 @@
 <p class="eyebrow">Fabric option</p>
 <h1>Full Blockout <span>Fabric</span></h1>
 <p>
-  Full blockout fabric is designed for outdoor areas that require maximum privacy, shade and light control. It provides full coverage, making it ideal for spaces where customers want a more enclosed feel and stronger protection from sun exposure.
+  Full blockout fabric is designed for outdoor areas that require maximum privacy, light control and full coverage. It is ideal for projects where customers want a more enclosed outdoor space with stronger protection from sun exposure and outside visibility.
 </p>
 <ul class="product-list">
+<li>100% blockout coverage</li>
 <li>Maximum privacy and light control</li>
 <li>Ideal for enclosed outdoor areas</li>
-<li>Suitable for residential and commercial projects</li>
 </ul>
 <div class="product-detail-actions">
-<a class="btn btn-primary" href="blockout-fabric.pdf" target="_blank" rel="noopener noreferrer">
+<a class="btn btn-primary" href="#fabric-details">
   More Info
 </a>
 <a class="btn btn-outline" href="fabrics-colours.html">Back to Fabrics</a>
@@ -1660,6 +1766,93 @@
 </div>
 </div>
 </div>
+</section>
+
+<section class="section section-dark fabric-info-section" id="fabric-details">
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">Fabric details</p>
+      <h2>100% Blockout <span>/ Full Coverage</span></h2>
+      <p>
+        The full blockout fabric option is designed for projects where privacy, light control and full coverage are the priority. It helps create a more enclosed outdoor area by blocking visibility through the fabric.
+      </p>
+    </div>
+
+    <div class="fabric-info-grid">
+
+      <article class="fabric-info-card">
+        <h3>Maximum Privacy</h3>
+        <p>
+          Full blockout fabric provides the highest level of privacy across the fabric range, making it suitable for areas where customers do not want visibility through the blind.
+        </p>
+      </article>
+
+      <article class="fabric-info-card">
+        <h3>Full Light Control</h3>
+        <p>
+          The solid fabric construction helps reduce light and glare more strongly than screen fabrics, creating a darker and more protected outdoor area.
+        </p>
+      </article>
+
+      <article class="fabric-info-card">
+        <h3>Enclosed Outdoor Feel</h3>
+        <p>
+          This option is ideal when the goal is to create a more private, room-like outdoor space for patios, balconies, alfresco areas or commercial settings.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="fabric-detail-layout">
+
+      <div class="fabric-detail-copy">
+        <p class="eyebrow">Best suited for</p>
+        <h2>Outdoor areas needing <span>maximum privacy</span></h2>
+        <p>
+          Full blockout fabric is a strong choice for spaces where customers want the most privacy and coverage possible. It is suited to areas where visibility, glare and light need to be reduced as much as possible.
+        </p>
+
+        <ul class="product-list">
+          <li>Best for privacy-focused projects</li>
+          <li>Suitable for patios, balconies and alfresco areas</li>
+          <li>Helps reduce glare, light and outside visibility</li>
+          <li>Creates a more enclosed outdoor space</li>
+        </ul>
+      </div>
+
+      <div class="fabric-spec-panel">
+        <h3>Quick Fabric Guide</h3>
+
+        <div class="fabric-spec-row">
+          <strong>Shade Level</strong>
+          <span>100%</span>
+        </div>
+
+        <div class="fabric-spec-row">
+          <strong>Openness</strong>
+          <span>0%</span>
+        </div>
+
+        <div class="fabric-spec-row">
+          <strong>Privacy</strong>
+          <span>Maximum</span>
+        </div>
+
+        <div class="fabric-spec-row">
+          <strong>Visibility</strong>
+          <span>Blocked</span>
+        </div>
+
+        <div class="fabric-spec-row">
+          <strong>Best Use</strong>
+          <span>Full privacy, blockout and coverage</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 </main>
 <footer class="site-footer">

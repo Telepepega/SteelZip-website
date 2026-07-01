@@ -1333,6 +1333,112 @@
       }
     }
 
+
+    /* Fabric detail information section */
+    .fabric-info-section {
+      padding-top: 80px;
+    }
+
+    .fabric-info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 60px;
+    }
+
+    .fabric-info-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--panel);
+    }
+
+    .fabric-info-card h3 {
+      margin-bottom: 12px;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .fabric-info-card p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .fabric-detail-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .fabric-detail-copy {
+      padding: 34px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--panel);
+    }
+
+    .fabric-detail-copy h2 {
+      margin: 12px 0 20px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+    }
+
+    .fabric-detail-copy h2 span {
+      color: var(--orange);
+    }
+
+    .fabric-detail-copy p {
+      margin-bottom: 22px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .fabric-spec-panel {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #101010;
+    }
+
+    .fabric-spec-panel h3 {
+      margin-bottom: 20px;
+      color: #fff;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+    }
+
+    .fabric-spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+      border-bottom: 1px solid #303030;
+    }
+
+    .fabric-spec-row:last-child {
+      border-bottom: 0;
+    }
+
+    .fabric-spec-row strong {
+      color: #fff;
+    }
+
+    .fabric-spec-row span {
+      color: var(--orange);
+      font-weight: 800;
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .fabric-info-grid,
+      .fabric-detail-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* Responsive */
     @media (max-width: 1100px) {
       .desktop-nav {
@@ -1644,15 +1750,15 @@
 <p class="eyebrow">Fabric option</p>
 <h1>97% <span>Fabric</span></h1>
 <p>
-  The 97% fabric option provides strong shade and privacy while still allowing filtered visibility to the outside. It is a practical choice for outdoor areas where customers want high sun protection without completely closing off the space.
+  The 97% fabric option provides strong shade and privacy while still allowing limited airflow and filtered outward visibility. With 3% openness, it is a practical choice for outdoor areas where customers want high sun protection without completely closing off the space.
 </p>
 <ul class="product-list">
+<li>97% shade / 3% openness</li>
 <li>High privacy and shade control</li>
 <li>Filtered outward visibility</li>
-<li>Suitable for exposed outdoor living areas</li>
 </ul>
 <div class="product-detail-actions">
-<a class="btn btn-primary" href="97-percent-fabric.pdf" target="_blank" rel="noopener noreferrer">
+<a class="btn btn-primary" href="#fabric-details">
   More Info
 </a>
 <a class="btn btn-outline" href="fabrics-colours.html">Back to Fabrics</a>
@@ -1660,6 +1766,93 @@
 </div>
 </div>
 </div>
+</section>
+
+<section class="section section-dark fabric-info-section" id="fabric-details">
+  <div class="container">
+
+    <div class="section-heading">
+      <p class="eyebrow">Fabric details</p>
+      <h2>97% Shade <span>/ 3% Openness</span></h2>
+      <p>
+        The 97% fabric is designed for outdoor blind projects where strong shade, privacy and sun protection are required while still allowing limited airflow and filtered outward visibility.
+      </p>
+    </div>
+
+    <div class="fabric-info-grid">
+
+      <article class="fabric-info-card">
+        <h3>High Privacy</h3>
+        <p>
+          With only 3% openness, this fabric provides a higher level of privacy compared to more open screen fabrics, making it suitable for areas where customers want a more enclosed outdoor space.
+        </p>
+      </article>
+
+      <article class="fabric-info-card">
+        <h3>Strong Shade Control</h3>
+        <p>
+          The tighter weave helps reduce glare and sun exposure, making patios, balconies and alfresco areas more comfortable during bright or hot conditions.
+        </p>
+      </article>
+
+      <article class="fabric-info-card">
+        <h3>Filtered Visibility</h3>
+        <p>
+          While it offers strong coverage, the fabric still allows some outward visibility so the space does not feel completely closed off.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="fabric-detail-layout">
+
+      <div class="fabric-detail-copy">
+        <p class="eyebrow">Best suited for</p>
+        <h2>Outdoor areas needing <span>privacy and shade</span></h2>
+        <p>
+          The 97% fabric is a practical choice for patios, alfresco areas, balconies and commercial outdoor spaces where customers want a strong balance between privacy, comfort and protection from the sun.
+        </p>
+
+        <ul class="product-list">
+          <li>Great for west-facing or high-sun areas</li>
+          <li>Suitable where privacy is a priority</li>
+          <li>Helps reduce heat, glare and exposure</li>
+          <li>Maintains some airflow and outward view</li>
+        </ul>
+      </div>
+
+      <div class="fabric-spec-panel">
+        <h3>Quick Fabric Guide</h3>
+
+        <div class="fabric-spec-row">
+          <strong>Shade Level</strong>
+          <span>97%</span>
+        </div>
+
+        <div class="fabric-spec-row">
+          <strong>Openness</strong>
+          <span>3%</span>
+        </div>
+
+        <div class="fabric-spec-row">
+          <strong>Privacy</strong>
+          <span>High</span>
+        </div>
+
+        <div class="fabric-spec-row">
+          <strong>Visibility</strong>
+          <span>Filtered</span>
+        </div>
+
+        <div class="fabric-spec-row">
+          <strong>Best Use</strong>
+          <span>Privacy, shade and sun control</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 </main>
 <footer class="site-footer">

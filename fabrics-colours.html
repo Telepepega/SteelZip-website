@@ -1577,6 +1577,96 @@
         animation-duration: 0.01ms !important;
       }
     }
+
+        .fabric-options-section {
+      padding-top: 80px;
+    }
+
+    .fabric-option-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .fabric-option-card {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--panel);
+      color: #fff;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .fabric-option-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--orange);
+      box-shadow: var(--shadow);
+    }
+
+    .fabric-option-image {
+      height: 220px;
+      overflow: hidden;
+      background: #222;
+    }
+
+    .fabric-option-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 450ms ease;
+    }
+
+    .fabric-option-card:hover .fabric-option-image img {
+      transform: scale(1.045);
+    }
+
+    .fabric-option-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+    }
+
+    .fabric-option-body h3 {
+      margin-bottom: 12px;
+      color: #fff;
+      font-size: 1.35rem;
+      line-height: 1.25;
+    }
+
+    .fabric-option-body p {
+      margin-bottom: 20px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .fabric-option-body .product-list {
+      margin-bottom: 24px;
+    }
+
+    .fabric-option-body .btn {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    @media (max-width: 1150px) {
+      .fabric-option-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .fabric-option-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fabric-option-image {
+        height: 240px;
+      }
+    }
   </style>
 </head>
 <body id="top">
@@ -1644,16 +1734,16 @@
 <p class="eyebrow">Finishes</p>
 <h1>Fabrics <span>&amp; Colours</span></h1>
 <p>
-  Choose from a range of outdoor blind fabrics designed to suit different levels of privacy, shade, airflow and visibility. From full blockout fabric to lighter screen options, each fabric can be selected to match the project's comfort, appearance and performance requirements.
+  Choose from a range of SteelZip outdoor blind fabrics designed to suit different levels of privacy, shade, airflow and visibility. From full blockout fabric for maximum privacy to more open screen fabrics for airflow and outward visibility, each option can be selected to match the project’s comfort, appearance and performance requirements.
 </p>
 <ul class="product-list">
 <li>Full blockout and screen fabric options available</li>
 <li>Different privacy, airflow and visibility levels</li>
-<li>Suitable for residential and commercial outdoor areas</li>
+<li>Colour options available across the fabric range</li>
 </ul>
 <div class="product-detail-actions">
-<a class="btn btn-primary" href="SteelZip Brochure New Page Number.pdf" target="_blank" rel="noopener noreferrer">
-  More Info
+<a class="btn btn-primary" href="#fabric-options">
+  View Fabrics
 </a>
 <a class="btn btn-outline" href="outdoor-blinds.html">Back to Outdoor Blinds</a>
 </div>
@@ -1662,86 +1752,126 @@
 </div>
 </section>
 
-<section class="section section-dark fabric-range-section">
-<div class="container">
-<div class="section-heading">
-<p class="eyebrow">Fabric range</p>
-<h2>Outdoor Blind <span>Fabrics</span></h2>
-<p>
-  Select from different fabric options depending on the level of privacy, shade,
-  visibility and airflow required for each project.
-</p>
-</div>
+<section class="section section-dark fabric-options-section" id="fabric-options">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Fabric Range</p>
+      <h2>Choose Your <span>Fabric</span></h2>
+      <p>
+        Select from different outdoor blind fabric options depending on the level of privacy,
+        shade, airflow and visibility required for each project.
+      </p>
+    </div>
 
-<div class="range-grid">
+    <div class="fabric-option-grid">
 
-<a class="range-card" href="blockout-fabric.html">
-<div class="range-card-image">
-<img src="blockout-fabric.jpg" alt="Full blockout outdoor blind fabric" loading="lazy"/>
-</div>
-<div class="range-card-body">
-<h3>Full Blockout / 100%</h3>
-<p>
-  Maximum privacy and light control for areas where full coverage and protection are required.
-</p>
-<span>View fabric →</span>
-</div>
-</a>
+      <article class="fabric-option-card">
+        <div class="fabric-option-image">
+          <img src="blockout-fabric.jpg" alt="Full blockout outdoor blind fabric" loading="lazy">
+        </div>
 
-<a class="range-card" href="97-percent-fabric.html">
-<div class="range-card-image">
-<img src="97-percent-fabric.jpg" alt="97 percent outdoor blind fabric" loading="lazy"/>
-</div>
-<div class="range-card-body">
-<h3>97% Fabric</h3>
-<p>
-  High shade and privacy control while still allowing some filtered outdoor visibility.
-</p>
-<span>View fabric →</span>
-</div>
-</a>
+        <div class="fabric-option-body">
+          <h3>Full Blockout / 100%</h3>
+          <p>
+            Full blockout fabric designed for maximum privacy, sun protection and light control. Best suited for areas where complete coverage and privacy are preferred.
+          </p>
 
-<a class="range-card" href="95-percent-fabric.html">
-<div class="range-card-image">
-<img src="95-percent-fabric.jpg" alt="95 percent outdoor blind fabric" loading="lazy"/>
-</div>
-<div class="range-card-body">
-<h3>95% Fabric</h3>
-<p>
-  A balanced screen option offering shade, privacy and comfortable filtered visibility.
-</p>
-<span>View fabric →</span>
-</div>
-</a>
+          <ul class="product-list">
+            <li>0% openness</li>
+            <li>Maximum privacy</li>
+            <li>Strong light and heat control</li>
+          </ul>
 
-<a class="range-card" href="90-percent-fabric.html">
-<div class="range-card-image">
-<img src="90-percent-fabric.jpg" alt="90 percent outdoor blind fabric" loading="lazy"/>
-</div>
-<div class="range-card-body">
-<h3>90% Fabric</h3>
-<p>
-  Allows more natural light and outward visibility while helping reduce sun exposure.
-</p>
-<span>View fabric →</span>
-</div>
-</a>
+          <a class="btn btn-dark" href="blockout-fabric.html">View Fabric</a>
+        </div>
+      </article>
 
-<a class="range-card" href="70-percent-fabric.html">
-<div class="range-card-image">
-<img src="70-percent-fabric.jpg" alt="70 percent outdoor blind fabric" loading="lazy"/>
-</div>
-<div class="range-card-body">
-<h3>70% Fabric</h3>
-<p>
-  A lighter screen option for projects where airflow, visibility and an open outdoor feel are preferred.
-</p>
-<span>View fabric →</span>
-</div>
-</a>
+      <article class="fabric-option-card">
+        <div class="fabric-option-image">
+          <img src="97-percent-fabric.jpg" alt="97 percent outdoor blind fabric" loading="lazy">
+        </div>
 
-</div>
-</div>
+        <div class="fabric-option-body">
+          <h3>97% Fabric</h3>
+          <p>
+            A high-privacy screen fabric that allows limited airflow and filtered visibility while still providing strong shade and outdoor comfort.
+          </p>
+
+          <ul class="product-list">
+            <li>3% openness</li>
+            <li>High privacy level</li>
+            <li>Suitable for everyday outdoor shading</li>
+          </ul>
+
+          <a class="btn btn-dark" href="97-percent-fabric.html">View Fabric</a>
+        </div>
+      </article>
+
+      <article class="fabric-option-card">
+        <div class="fabric-option-image">
+          <img src="95-percent-fabric.jpg" alt="95 percent outdoor blind fabric" loading="lazy">
+        </div>
+
+        <div class="fabric-option-body">
+          <h3>95% Fabric</h3>
+          <p>
+            A balanced outdoor screen fabric offering privacy, shade and some outward visibility. A practical all-round option for residential and commercial outdoor areas.
+          </p>
+
+          <ul class="product-list">
+            <li>5% openness</li>
+            <li>Balanced shade and visibility</li>
+            <li>Good privacy with airflow</li>
+          </ul>
+
+          <a class="btn btn-dark" href="95-percent-fabric.html">View Fabric</a>
+        </div>
+      </article>
+
+      <article class="fabric-option-card">
+        <div class="fabric-option-image">
+          <img src="90-percent-fabric.jpg" alt="90 percent outdoor blind fabric" loading="lazy">
+        </div>
+
+        <div class="fabric-option-body">
+          <h3>90% Fabric</h3>
+          <p>
+            A more open screen fabric designed to provide shade while allowing greater airflow and visibility compared with higher blockout fabrics.
+          </p>
+
+          <ul class="product-list">
+            <li>10% openness</li>
+            <li>Improved airflow</li>
+            <li>Suitable for open outdoor areas</li>
+          </ul>
+
+          <a class="btn btn-dark" href="90-percent-fabric.html">View Fabric</a>
+        </div>
+      </article>
+
+      <article class="fabric-option-card">
+        <div class="fabric-option-image">
+          <img src="70-percent-fabric.jpg" alt="70 percent outdoor blind fabric" loading="lazy">
+        </div>
+
+        <div class="fabric-option-body">
+          <h3>70% Fabric</h3>
+          <p>
+            An open weave fabric option designed for maximum airflow and visibility while still providing shade and insect protection for outdoor spaces.
+          </p>
+
+          <ul class="product-list">
+            <li>30% openness</li>
+            <li>Maximum airflow and view</li>
+            <li>Ideal where visibility is preferred</li>
+          </ul>
+
+          <a class="btn btn-dark" href="70-percent-fabric.html">View Fabric</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
 </section>
 </main>
 <footer class="site-footer">
